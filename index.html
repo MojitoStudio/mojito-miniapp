@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mojito View — Мини-приложение</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f3f3f3;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background-color: #00c2a8;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: #00998a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mojito View</h1>
+    <p>👋 Добро пожаловать в мини-приложение!</p>
+    <button class="btn" onclick="sayHello()">Нажми меня</button>
+  </div>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand(); // развернуть окно
+
+    function sayHello() {
+      tg.sendData("👋 Привет от Mojito View!"); // отправляет данные боту
+      alert("Привет! Это только начало 💚");
+    }
+  </script>
+</body>
+</html>
