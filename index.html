@@ -2,64 +2,75 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mojito View — Мини-приложение</title>
+  <title>Mojito View</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
+    * {
       margin: 0;
-      padding: 20px;
-      background-color: #f3f3f3;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .container {
-      max-width: 400px;
-      margin: auto;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 20px;
+    body {
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
 
     h1 {
+      font-size: 3em;
+      background: linear-gradient(90deg, #ff00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.4em;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #aaaaaa;
+      margin-bottom: 2em;
       text-align: center;
-      color: #333;
+      max-width: 600px;
     }
 
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      background-color: #00c2a8;
-      color: white;
+    .start-btn {
+      padding: 15px 40px;
+      background: linear-gradient(90deg, #ff00ff, #00ffff);
       border: none;
-      border-radius: 6px;
+      border-radius: 50px;
+      color: black;
+      font-size: 1.2em;
+      font-weight: bold;
       cursor: pointer;
-      font-size: 16px;
+      transition: 0.3s;
+      text-transform: uppercase;
     }
 
-    .btn:hover {
-      background-color: #00998a;
+    .start-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff00ff80;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.8em;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Mojito View</h1>
-    <p>👋 Добро пожаловать в мини-приложение!</p>
-    <button class="btn" onclick="sayHello()">Нажми меня</button>
-  </div>
 
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script>
-    const tg = window.Telegram.WebApp;
-    tg.expand(); // развернуть окно
+  <h1>Mojito View</h1>
+  <p>Интерактивное кино в 3D. Эмоции. Драма. Красота. Погрузись в уникальный мир с невероятной графикой и героями, которые кажутся живыми.</p>
+  <button class="start-btn">Начать</button>
 
-    function sayHello() {
-      tg.sendData("👋 Привет от Mojito View!"); // отправляет данные боту
-      alert("Привет! Это только начало 💚");
-    }
-  </script>
+  <footer>© 2025 Mojito Studio — PEGI 16+</footer>
+
 </body>
 </html>
