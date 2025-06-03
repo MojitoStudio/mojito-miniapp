@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Mojito View — Пробная глава</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://i.imgur.com/pM23TjJ.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Orbitron', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .intro {
+      margin-top: 40px;
+      background-color: rgba(0,0,0,0.7);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    .video-block {
+      margin-top: 20px;
+      border: 3px solid #00ffff;
+      border-radius: 15px;
+      overflow: hidden;
+      width: 90%;
+      max-width: 720px;
+    }
+
+    .choices {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .choice-btn {
+      background: linear-gradient(90deg, #ff00ff, #00ffff);
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      color: black;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .choice-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #ff00ff80;
+    }
+
+    .result {
+      margin-top: 30px;
+      font-size: 1.2em;
+      background-color: rgba(0,0,0,0.7);
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="intro">
+    <h1>Глава 0 — Пролог</h1>
+    <p>Ты просыпаешься в незнакомом городе. Ночь, неон, дождь. Телефон разряжен. Кто-то зовёт тебя по имени…</p>
+  </div>
+
+  <div class="video-block">
+    <!-- Заменить на своё видео или YouTube -->
+    <iframe width="100%" height="405" src="https://www.youtube.com/embed/HyOZxFh4NFs" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <div class="choices">
+    <button class="choice-btn" onclick="showResult('Ты решаешь следовать за голосом, не зная, что ждёт впереди...')">Пойти за голосом</button>
+    <button class="choice-btn" onclick="showResult('Ты разворачиваешься и уходишь в переулок... там темно и опасно.')">Спрятаться в переулке</button>
+  </div>
+
+  <div class="result" id="result-block">
+    <p id="result-text"></p>
+  </div>
+
+  <script>
+    function showResult(text) {
+      document.getElementById('result-text').innerText = text;
+      document.getElementById('result-block').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
