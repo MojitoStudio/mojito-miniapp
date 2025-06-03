@@ -14,9 +14,10 @@
       height: 100%;
       overflow: hidden;
       font-family: 'Arial', sans-serif;
+      color: white;
     }
 
-    /* Видео задний фон */
+    /* Видео фон */
     .bg-video {
       position: fixed;
       right: 0;
@@ -25,6 +26,15 @@
       min-height: 100%;
       z-index: -1;
       object-fit: cover;
+      filter: brightness(0.7);
+    }
+
+    .overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: -1;
     }
 
     .content {
@@ -37,34 +47,38 @@
     }
 
     h1 {
-      font-size: 3em;
-      text-shadow: 0 0 15px #00ffc3;
+      font-size: 3.5em;
+      text-shadow: 0 0 20px #00ffc3, 0 0 40px #00ffc3;
     }
 
     .start-button {
-      margin-top: 20px;
-      padding: 14px 32px;
+      margin-top: 25px;
+      padding: 14px 36px;
       font-size: 1.3em;
-      background: rgba(0, 255, 204, 0.8);
+      background: #00ffc3;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       cursor: pointer;
+      box-shadow: 0 0 20px #00ffc3;
       transition: 0.3s;
     }
 
     .start-button:hover {
-      background: rgba(0, 255, 204, 1);
+      background: #00e6b3;
       transform: scale(1.05);
     }
   </style>
 </head>
 <body>
 
-  <!-- Видео: город ночью (из Pexels) -->
+  <!-- Видео заднего плана -->
   <video autoplay muted loop class="bg-video">
     <source src="https://cdn.coverr.co/videos/coverr-night-city-skyline-9935/1080p.mp4" type="video/mp4">
-    Ваш браузер не поддерживает видеофон.
+    Ваш браузер не поддерживает HTML5 видео.
   </video>
+
+  <!-- Затемнение -->
+  <div class="overlay"></div>
 
   <!-- Контент -->
   <div class="content">
@@ -72,7 +86,8 @@
     <button class="start-button">Начать</button>
   </div>
 
-
+</body>
+</html>
   <footer>© 2025 Mojito Studio — PEGI 16+</footer>
 
 </body>
