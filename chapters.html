@@ -2,70 +2,115 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Выбор главы</title>
+  <title>Выбор Глав — Mojito View</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(135deg, #0a0a0a, #1f1f1f);
+      background: url('https://www.xtrafondos.com/wallpapers/ciudad-de-gta-6-12064.jpg') no-repeat center center/cover;
       color: white;
-      padding: 30px;
+      min-height: 100vh;
+      padding: 40px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
     }
 
-    h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      text-shadow: 0 0 10px #00ffff;
-      animation: fadeIn 1.5s ease-out;
+    h1 {
+      font-size: 2.5em;
+      background: linear-gradient(90deg, #ff00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 40px;
+      animation: neon 3s infinite alternate;
     }
 
-    .chapter-card {
-      width: 300px;
-      padding: 20px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.05);
+    .chapter-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .chapter {
+      background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(8px);
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-      text-align: center;
-      transition: 0.3s;
+      border-radius: 20px;
+      padding: 20px;
+      width: 280px;
+      height: 180px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
       position: relative;
-      animation: fadeIn 2s ease;
+      transition: transform 0.3s ease;
+      animation: fadeIn 1.5s ease forwards;
     }
 
-    .chapter-card.locked::after {
-      content: '🔒 Доступ с 9 декабря';
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
+    .chapter:hover {
+      transform: scale(1.03);
+    }
+
+    .chapter-title {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+    }
+
+    .locked {
       font-size: 0.9em;
-      color: #aaa;
+      color: #ffcccc;
+      display: flex;
+      align-items: center;
     }
 
-    .chapter-card.locked {
-      opacity: 0.6;
-      pointer-events: none;
+    .locked::before {
+      content: '🔐';
+      margin-right: 8px;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.8em;
+      color: #ccc;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    @keyframes neon {
+      from { text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff; }
+      to { text-shadow: 0 0 20px #ff00ff, 0 0 30px #00ffff; }
+    }
   </style>
 </head>
 <body>
 
-  <h2>Выберите главу</h2>
+  <h1>Выбор Глав</h1>
 
-  <div class="chapter-card locked">
-    <h3>Глава I — Новый мир</h3>
+  <div class="chapter-list">
+    <div class="chapter">
+      <div class="chapter-title">Глава I: Новый Мир</div>
+      <div class="locked">Доступ с 9 декабря</div>
+    </div>
+
+    <div class="chapter">
+      <div class="chapter-title">Глава II: Поезд в никуда</div>
+      <div class="locked">Скоро...</div>
+    </div>
+
+    <div class="chapter">
+      <div class="chapter-title">Глава III: Нити притяжения</div>
+      <div class="locked">Скоро...</div>
+    </div>
   </div>
 
-  <!-- Можно добавить другие главы позже -->
+  <footer>© 2025 Mojito Studio — Все права защищены</footer>
 
 </body>
 </html>

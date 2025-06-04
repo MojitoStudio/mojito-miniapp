@@ -12,85 +12,89 @@
     }
 
     body {
-      height: 100vh;
       font-family: 'Orbitron', sans-serif;
-      background: url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+      background: url('https://www.xtrafondos.com/wallpapers/ciudad-de-gta-6-12064.jpg') no-repeat center center/cover;
+      height: 100vh;
+      color: white;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
       overflow: hidden;
     }
 
-    .glass {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
+    .glass-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
       padding: 40px;
-      text-align: center;
       backdrop-filter: blur(10px);
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
-      animation: fadeIn 2s ease;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
     }
 
     h1 {
       font-size: 3em;
-      color: white;
-      text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
-      animation: fadeInText 2s ease-in-out;
+      background: linear-gradient(90deg, #ff00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      animation: neon 3s infinite alternate;
     }
 
     p {
-      margin: 20px 0;
-      color: #ccc;
-      font-size: 1.1em;
-      animation: fadeInText 2.5s ease-in-out;
+      font-size: 1.2em;
+      color: #eeeeee;
+      margin-bottom: 30px;
+      max-width: 600px;
     }
 
     .start-btn {
       padding: 15px 40px;
+      background: linear-gradient(90deg, #ff00ff, #00ffff);
       border: none;
       border-radius: 50px;
-      background: linear-gradient(90deg, #ff00ff, #00ffff);
       color: black;
-      font-weight: bold;
       font-size: 1.2em;
+      font-weight: bold;
       cursor: pointer;
-      animation: fadeInText 3s ease-in-out;
-      transition: 0.3s ease;
+      transition: 0.3s;
       text-transform: uppercase;
+      animation: fadeIn 3s ease-in-out;
     }
 
     .start-btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px #ff00ff90;
+      box-shadow: 0 0 25px #ff00ff80;
     }
 
     footer {
       position: absolute;
       bottom: 20px;
-      color: #999;
       font-size: 0.8em;
+      color: #ccc;
     }
 
     @keyframes fadeIn {
-      0% { opacity: 0; transform: scale(0.95); }
-      100% { opacity: 1; transform: scale(1); }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes fadeInText {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+    @keyframes neon {
+      from { text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff; }
+      to { text-shadow: 0 0 20px #ff00ff, 0 0 30px #00ffff; }
     }
   </style>
 </head>
 <body>
 
-  <div class="glass">
+  <div class="glass-box">
     <h1>Mojito View</h1>
     <p>Интерактивное кино в 3D. Эмоции. Драма. Красота. Погрузись в уникальный мир с невероятной графикой и героями, которые кажутся живыми.</p>
-    <a href="chapters.html"><button class="start-btn">Начать</button></a>
+    <button class="start-btn" onclick="window.location.href='chapters.html'">Начать</button>
   </div>
 
   <footer>© 2025 Mojito Studio — PEGI 16+</footer>
+
 </body>
 </html>
