@@ -12,7 +12,9 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      background: linear-gradient(135deg, #0d0221, #4b006e, #00ffff);
+      background-size: 400% 400%;
+      animation: gradientFlow 15s ease infinite;
       color: white;
       font-family: 'Orbitron', sans-serif;
       height: 100vh;
@@ -20,8 +22,12 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      position: relative;
-      overflow: hidden;
+    }
+
+    @keyframes gradientFlow {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     h1 {
@@ -30,16 +36,17 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 0.4em;
-      animation: fadeIn 1.5s ease-in-out forwards;
+      animation: neonPulse 2s infinite alternate;
     }
 
     p {
       font-size: 1.2em;
-      color: #aaaaaa;
+      color: #dddddd;
       margin-bottom: 2em;
       text-align: center;
       max-width: 600px;
-      animation: fadeIn 2s ease-in-out forwards;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards 0.5s;
     }
 
     .start-btn {
@@ -51,9 +58,10 @@
       font-size: 1.2em;
       font-weight: bold;
       cursor: pointer;
-      transition: 0.3s;
       text-transform: uppercase;
-      animation: fadeIn 2.5s ease-in-out forwards;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards 1s;
+      transition: 0.3s;
     }
 
     .start-btn:hover {
@@ -61,60 +69,28 @@
       box-shadow: 0 0 20px #ff00ff80;
     }
 
-    .extra-buttons {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
-    .extra-btn {
-      padding: 10px 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 30px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 0.9em;
-      text-align: center;
-    }
-
-    .extra-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: scale(1.05);
-      box-shadow: 0 0 10px #ff00ff80;
+    @keyframes neonPulse {
+      from { text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff; }
+      to { text-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff; }
     }
 
     footer {
       position: absolute;
       bottom: 20px;
       font-size: 0.8em;
-      color: #555;
-      animation: fadeIn 3s ease-in-out forwards;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+      color: #bbb;
     }
   </style>
 </head>
 <body>
 
-  <div class="extra-buttons">
-    <button class="extra-btn">📁 Архив</button>
-    <button class="extra-btn">🌐 Язык: RU</button>
-    <button class="extra-btn">🎉 Party</button>
-  </div>
-
   <h1>Mojito View</h1>
   <p>Интерактивное кино в 3D. Эмоции. Драма. Красота. Погрузись в уникальный мир с невероятной графикой и героями, которые кажутся живыми.</p>
-  <button class="start-btn">Начать</button>
+  <a href="chapters.html"><button class="start-btn">Начать</button></a>
 
   <footer>© 2025 Mojito Studio — PEGI 16+</footer>
 
