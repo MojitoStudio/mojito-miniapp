@@ -108,8 +108,42 @@
   <h1>Mojito View</h1>
   <p>Визуальная Новелла в 2D. Эмоции. Драма. Красота. Погрузись в уникальный мир с невероятной рисовкой и героями, которые кажутся живыми.</p>
   <a href="chapters.html"><button class="start-btn">Начать</button></a>
+  
+  <script async src="https://telegram.org/js/telegram-widget.js?22"
+        data-telegram-login="mojitoview_bot"  <!-- Замените на имя вашего бота -->
+        data-size="medium"
+        data-userpic="false"
+        data-request-access="write"
+        data-onauth="onTelegramAuth(user)">
+</script>
+
+<script>
+  function onTelegramAuth(user) {
+    // Сохраняем данные
+    localStorage.setItem("tg_user", JSON.stringify(user));
+    showLoggedIn(user);
+  }
+
+  function showLoggedIn(user) {
+    const loginBtn = document.querySelector('[data-telegram-login]');
+    if (loginBtn) loginBtn.style.display = 'none';
+
+    const userBox = document.createElement('div');
+    userBox.innerHTML = `👋 Вы вошли как <strong>${user.first_name}</strong>`;
+    userBox.style = "margin-top: 20px; font-size: 1em; color: #00ffff; font-weight: bold;";
+    document.body.appendChild(userBox);
+  }
+
+  // Проверяем при загрузке
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedUser = localStorage.getItem("tg_user");
+    if (savedUser) {
+      showLoggedIn(JSON.parse(savedUser));
+    }
+  });
+</script>
 
   <footer>© 2025 Mojito Studio — PEGI 16+</footer>
-
-</body>
+  
+   </body>
 </html>
