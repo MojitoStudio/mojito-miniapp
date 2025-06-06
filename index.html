@@ -89,6 +89,31 @@
 <body>
    <h1>Mojito View</h1>
   <p>Визуальная Новелла в 2D. Эмоции. Драма. Красота. Погрузись в уникальный мир с невероятной рисовкой и героями, которые кажутся живыми.</p>
+  
+  <div id="age-check" style="
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 600px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  margin-bottom: 30px;
+  animation: fadeIn 1s ease forwards;
+">
+  <h2 style="margin-bottom: 20px;">Возрастное соглашение 16+</h2>
+  <p style="font-size: 1em; line-height: 1.6;">
+    Mojito View создан для пользователей <strong>от 16 лет</strong>.
+    Мы честно предупреждаем: <br><br>
+    <em>"Если ты ещё не знаешь, что любовь — это красиво, но не всегда просто,
+и что романтика может стать жарче, чем кофе по утрам — возможно, пока не время." </em><br><br>
+    Здесь глубокие чувства и физическая близость, не для малышей.
+    Продолжить можно, только если тебе 16+.
+
+  </p>
+  <button onclick="document.getElementById('age-check').style.display='none';" class="start-btn" style="margin-top: 25px;">
+    Мне уже есть 16 — Продолжить
+  </button>
+</div>
   <a href="chapters.html"><button class="start-btn">Начать</button></a>
   
   <script async src="https://telegram.org/js/telegram-widget.js?22"
