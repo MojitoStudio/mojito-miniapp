@@ -90,30 +90,54 @@
    <h1>Mojito View</h1>
   <p>Визуальная Новелла в 2D. Эмоции. Драма. Красота. Погрузись в уникальный мир с невероятной рисовкой и героями, которые кажутся живыми.</p>
   
-  <div id="age-check" style="
-  background: rgba(0, 0, 0, 0.6);
-  padding: 30px;
-  border-radius: 20px;
-  max-width: 600px;
+<div id="age-modal" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
   text-align: center;
-  backdrop-filter: blur(8px);
-  margin-bottom: 30px;
-  animation: fadeIn 1s ease forwards;
+  font-family: 'Orbitron', sans-serif;
 ">
-  <h2 style="margin-bottom: 20px;">Возрастное соглашение 16+</h2>
-  <p style="font-size: 1em; line-height: 1.6;">
-    Mojito View создан для пользователей <strong>от 16 лет</strong>.
-    Мы честно предупреждаем: <br><br>
-    <em>"Если ты ещё не знаешь, что любовь — это красиво, но не всегда просто,
-и что романтика может стать жарче, чем кофе по утрам — возможно, пока не время." </em><br><br>
-    Здесь глубокие чувства и физическая близость, не для малышей.
-    Продолжить можно, только если тебе 16+.
-
+  <h2 style="margin-bottom: 20px; font-size: 1.8em;">⚠️ Это не для детей</h2>
+  <p style="max-width: 600px; margin-bottom: 30px;">
+    Этот проект содержит сцены романтической близости, эмоциональной драмы и зрелого повествования.  
+    Продолжая, вы подтверждаете, что вам 16 лет или больше.  
+    <br><br>
+    <em>И да, мы предупредили — маленьким тут не место 😉</em>
   </p>
-  <button onclick="document.getElementById('age-check').style.display='none';" class="start-btn" style="margin-top: 25px;">
-    Мне уже есть 16 — Продолжить
-  </button>
+  <button onclick="confirmAge()" style="
+    padding: 12px 30px;
+    font-size: 1em;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  ">Мне есть 16 — Продолжить</button>
 </div>
+     <script>
+  // Проверка: был ли пользователь уже подтверждён
+  if (localStorage.getItem("ageConfirmed") === "true") {
+    document.getElementById("age-modal").style.display = "none";
+  }
+
+  // Подтверждение возраста
+  function confirmAge() {
+    localStorage.setItem("ageConfirmed", "true");
+    document.getElementById("age-modal").style.display = "none";
+  }
+</script>
   <a href="chapters.html"><button class="start-btn">Начать</button></a>
   
   <script async src="https://telegram.org/js/telegram-widget.js?22"
